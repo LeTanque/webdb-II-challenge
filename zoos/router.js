@@ -7,7 +7,7 @@ const knexConfig = {
     connection: {
       filename: './data/lambda.sqlite3',
     },
-    debug: true,
+    // debug: true,
 };
 
 const zooDB = knex(knexConfig);
@@ -66,9 +66,9 @@ router.post('/', (req, res) => {
         })
         .catch(error => {
             if (error.errno === 19) {
-                res.status(409).json({ message: "Please choose a unique zoo name. Zoo name already exists." })
+                return res.status(409).json({ message: "Please choose a unique zoo name. Zoo name already exists." })
             }
-            res.status(500).json(error)
+            return res.status(500).json(error)
         })
 })
 
