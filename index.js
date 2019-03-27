@@ -3,6 +3,7 @@ const helmet = require('helmet');
 
 const server = express();
 const router = require('./zoos/router.js');
+const bears = require('./zoos/bears.js');
 
 server.use(express.json());
 server.use(helmet());
@@ -10,6 +11,7 @@ server.use(helmet());
 
 // endpoints here
 server.use('/api/zoos', router);
+server.use('/api/bears', bears);
 
 
 
