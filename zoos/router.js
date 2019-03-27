@@ -55,7 +55,6 @@ router.post('/', (req, res) => {
     zooDB('zoos')
         .insert(req.body)
         .then(ids => {
-            
             const id = ids[0]
             zooDB('zoos')
                 .where({ id })
